@@ -1,7 +1,10 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "s:\\Coding-Projects\\GyArab\\Cube\\lib\\ArabTools.jar",
+        "s:\\Coding-Projects\\GyArab\\Cube\\lib\\ArabTools-javadoc.jar"
     ]
 }
