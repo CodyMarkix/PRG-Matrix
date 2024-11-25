@@ -8,7 +8,7 @@ class CubeFace {
     String numData = "1-1,1;2-2,0:0,2;3-0,2:1,1:2,0;4-0,0:0,2:2,0:2,2;5-0,0:2,0:1,1:0,2:2,2;6-0,0:0,1:0,2:2,0:2,1:2,2";
     /*
      * Každý set souřadnic pro jedno číslo je rozdělen středníkem.
-     * V samotném setu je potom číslo, které náelží tomuto setu a samotný set dat, rozděleny pomlčkou.
+     * V samotném setu je potom číslo, které náelží tomuto setu a samotný set souřadnic, rozděleny pomlčkou.
      * Každá souřadnice je potom rozdělena dvojtečkou
      * 
      * PŘÍKLAD JEDNOHO SETU:
@@ -36,6 +36,7 @@ class CubeFace {
     String[] getCoordData(int number) {
         String numberCoords[] = this.numData.split(";");
         
+        // Nejspíš bych sem strčil binary search, ale máme jen šest stran. Linear search tu stačí.
         for (int i = 0; i < numberCoords.length; i++) {
             int dataId = Integer.parseInt(numberCoords[i].split("-")[0]);
             
@@ -46,7 +47,7 @@ class CubeFace {
             }
         }
 
-        return new String[0]; // Sem se dostanem jen pokud nenajdem žádné data pro hledané číslo
+        return new String[0]; // Sem se dostanem jen pokud nenajdem žádné souřadnice pro hledané číslo
     }
     
     void showWindow() {
@@ -67,10 +68,6 @@ class CubeFace {
         for (int i = 0; i < coordData.length; i++) {
             int x = Integer.parseInt(coordData[i].split(",")[0]);
             int y = Integer.parseInt(coordData[i].split(",")[1]);
-
-            System.out.print(x);
-            System.out.print(" ");
-            System.out.println(y);
 
             this.matrix.setOn(x, y);
         }
